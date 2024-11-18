@@ -95,7 +95,7 @@ if(isset($_POST['add']))
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>LM HOMES | Property</title>
+        <title>Titan | Property</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -112,10 +112,7 @@ if(isset($_POST['add']))
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
 		
-		<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.min.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
+
     </head>
     <body>
 
@@ -206,13 +203,13 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bathroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bath" required value="<?php echo $row['7']; ?>">
+														<input type="number" class="form-control" name="bath" required value="<?php echo $row['7']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Kitchen</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="kitc" required value="<?php echo $row['9']; ?>">
+														<input type="number" class="form-control" name="kitc" required value="<?php echo $row['9']; ?>">
 													</div>
 												</div>
 												
@@ -237,19 +234,19 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bedroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bed" required value="<?php echo $row['6']; ?>">
+														<input type="number" class="form-control" name="bed" required value="<?php echo $row['6']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Balcony</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="balc" required value="<?php echo $row['8']; ?>">
+														<input type="number" class="form-control" name="balc" required value="<?php echo $row['8']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Hall</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="hall" required value="<?php echo $row['10']; ?>">
+														<input type="number" class="form-control" name="hall" required value="<?php echo $row['10']; ?>">
 													</div>
 												</div>
 												
@@ -276,7 +273,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Price</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="price" required value="<?php echo $row['13']; ?>">
+														<input type="number" class="form-control" name="price" required value="<?php echo $row['13']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -319,7 +316,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Area Size</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="asize" required value="<?php echo $row['12']; ?>">
+														<input type="number" class="form-control" name="asize" required value="<?php echo $row['12']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">

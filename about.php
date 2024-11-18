@@ -25,7 +25,7 @@ include("config.php");
 <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
 
 <!-- Css Link -->
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap-slider.css">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
@@ -41,41 +41,15 @@ include("config.php");
 </head>
 <body>
 
-<!--	Page Loader -->
-<!-- <div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div> -->
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <div id="page-wrapper">
     <div class="row"> 
         <!--	Header start  -->
 		<?php include("include/header.php");?>
         <!--	Header end  -->
-        
-        <!--	Banner   --->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>About US</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">About Us</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-         <!--	Banner   --->
-		 <!-- FOR MORE PROJECTS visit: codeastro.com -->
+      
+		 
+         
         <!--	About Our Company -->
         <div class="full-row">
             <div class="container">
@@ -89,7 +63,7 @@ include("config.php");
 				?>
 				<div class="row">
                     <div class="col-md-12 col-lg-12">
-                        <h3 class="double-down-line-left text-secondary position-relative pb-4 mb-4"><?php echo $row['1'];?></h3>
+                        <h3><?php echo $row['1'];?></h3>
                     </div>
                 </div>
                 <div class="row about-company">
@@ -116,7 +90,7 @@ include("config.php");
         <!-- Scroll to top --> 
         <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
-    </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+    </div>
 </div>
 <!-- Wrapper End --> 
 

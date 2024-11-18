@@ -4,7 +4,7 @@ session_cache_limiter(false);
 session_start();
 include("config.php");
 ///code								
-?><!-- FOR MORE PROJECTS visit: codeastro.com -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@ include("config.php");
 	========================================================-->
 <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Css Link
 	========================================================-->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -58,7 +58,7 @@ include("config.php");
     <div class="row"> 
         <!--	Header One -->
         <!--	Header start  -->
-		<?php include("include/header.php");?><!-- FOR MORE PROJECTS visit: codeastro.com -->
+		<?php include("include/header.php");?>
         <!--	Header end  -->
 
         <!--	Banner   --->
@@ -86,25 +86,39 @@ include("config.php");
             <div class="container">
 				<div class="row">
                     <div class="col-lg-12">
-                        <h2 class="text-secondary double-down-line text-center mb-5">Agent</h2>
+                        <h2 class="text-secondary  text-center mb-5">Agents</h2>
                         </div>
                 </div>
                 <div class="row">
-                <!-- FOR MORE PROJECTS visit: codeastro.com -->
+               
                     <?php 
 							$query=mysqli_query($con,"SELECT * FROM user WHERE utype='agent'");
 								while($row=mysqli_fetch_array($query))
 								{
                             ?>
                             
-                    <div class="col-md-6 col-lg-4">
-                        <div class="hover-zoomer bg-white shadow-one mb-4">
-                            <div class="overflow-hidden"> <img src="admin/user/<?php echo $row['6'];?>" alt="aimage"> </div>
-                            <div class="py-3 text-center">
-                                <h5 class="text-secondary hover-text-success"><a href="#"><?php echo $row['1'];?></a></h5>
-                                <span>Real Estate - Agent</span> </div>
-                        </div>
-                    </div>
+                            <div class="col-md-4 col-lg-3">
+                                <div class="hover-zoomer bg-white shadow-one mb-4">
+                                    <div class="overflow-hidden">
+                                        <img src="admin/user/<?php echo $row['6'];?>" alt="aimage" class="img-fluid" style="max-width: 100%; height: auto;">
+                                    </div>
+                                    <div class="py-3 text-center">
+                                        <h5 class="text-secondary hover-text-success">
+                                            <a href="#"><?php echo $row['1']; ?></a>
+                                        </h5>
+                                        <span>Real Estate - Agent</span> <br>
+                                        <span style="display: inline-block; font-size: 16px; color: #555; padding: 8px 0; margin-bottom: 5px; text-align: center;">
+                                            <i style="color: #ff6b6b; margin-right: 8px; font-size: 18px;" class="fas fa-envelope"></i> 
+                                            Email: <?php echo $row['uemail']; ?>
+                                        </span> <br>
+                                        <span style="display: inline-block; font-size: 16px; color: #555; padding: 8px 0; margin-bottom: 5px; text-align: center;">
+                                            <i style="color: #ff6b6b; margin-right: 8px; font-size: 18px;" class="fas fa-phone-alt"></i> 
+                                            Phone: <?php echo $row['uphone']; ?>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
                    
                     <?php } ?>
                 

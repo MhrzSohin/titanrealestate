@@ -46,7 +46,7 @@ if(isset($_REQUEST['reg']))
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -81,16 +81,6 @@ if(isset($_REQUEST['reg']))
 </head>
 <body>
 
-<!--	Page Loader
-=============================================================
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
---> 
 
 
 <div id="page-wrapper">
@@ -98,97 +88,104 @@ if(isset($_REQUEST['reg']))
         <!--	Header start  -->
 		<?php include("include/header.php");?>
         <!--	Header end  -->
-        
-        <!--	Banner   --->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>Register</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Register</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-         <!--	Banner   --->
+  
 		 
 		 
-		 
-        <div class="page-wrappers login-body full-row bg-gray">
-            <div class="login-wrapper">
-            	<div class="container">
-                	<div class="loginbox">
-                        <div class="login-right">
-							<div class="login-right-wrap">
-								<h1>Register</h1>
-								<p class="account-subtitle">Access to our dashboard</p>
-								<?php echo $error; ?><?php echo $msg; ?>
-								<!-- Form -->
-								<form method="post" enctype="multipart/form-data">
-									<div class="form-group">
-										<input type="text"  name="name" class="form-control" placeholder="Your Name*">
-									</div>
-									<div class="form-group">
-										<input type="email"  name="email" class="form-control" placeholder="Your Email*">
-									</div>
-									<div class="form-group">
-										<input type="text"  name="phone" class="form-control" placeholder="Your Phone*" maxlength="10">
-									</div>
-									<div class="form-group">
-										<input type="password" name="pass"  class="form-control" placeholder="Your Password*">
-									</div>
+		<div class="page-wrappers login-body full-row bg-gradient">
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="loginbox shadow-lg p-5 rounded bg-white">
+                <div class="login-right">
+                    <div class="login-right-wrap">
+                        <!-- Title and Subtitle -->
+                        <h1 class="text-center text-primary mb-3">Create Account</h1>
+                        <p class="account-subtitle text-center mb-4">Join us and access the dashboard</p>
 
-									 <div class="form-check-inline">
-									  <label class="form-check-label">
-										<input type="radio" class="form-check-input" name="utype" value="user" checked>User
-									  </label>
-									</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
-									<div class="form-check-inline">
-									  <label class="form-check-label">
-										<input type="radio" class="form-check-input" name="utype" value="agent">Agent
-									  </label>
-									</div>
-								
-									
-									<div class="form-group">
-										<label class="col-form-label"><b>User Image</b></label>
-										<input class="form-control" name="uimage" type="file">
-									</div>
-									
-									<button class="btn btn-success" name="reg" value="Register" type="submit">Register</button>
-									
-								</form>
-								
-								<div class="login-or">
-									<span class="or-line"></span>
-									<span class="span-or">or</span>
+                        <!-- Error/Message Display -->
+                        <?php echo $error; ?><?php echo $msg; ?>
+
+                        <!-- Form -->
+                        <form method="post" enctype="multipart/form-data">
+                            <!-- Name Input -->
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control form-control-lg" placeholder="Full Name*">
+                            </div>
+
+                            <!-- Email Input -->
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control form-control-lg" placeholder="Email Address*">
+                            </div>
+
+                            <!-- Phone Input -->
+                            <div class="form-group">
+                                <input type="text" name="phone" class="form-control form-control-lg" placeholder="Phone Number*" maxlength="10">
+                            </div>
+
+                            <!-- Password Input -->
+                            <div class="form-group">
+									<input type="password" id="password" name="pass" class="form-control form-control-lg" placeholder="Password*" minlength="6" required>
+									<small id="passwordHelp" class="form-text text-danger" style="display: none;">Password must be at least 6 characters long.</small>
 								</div>
-								
-								<!-- Social Login -->
-								<!-- <div class="social-login">
-									<span>Register with</span>
-									<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-									<a href="#" class="google"><i class="fab fa-google"></i></a>
-									<a href="#" class="facebook"><i class="fab fa-twitter"></i></a>
-									<a href="#" class="google"><i class="fab fa-instagram"></i></a>
-								</div> -->
-								<!-- /Social Login -->
-								
-								<div class="text-center dont-have">Already have an account? <a href="login.php">Login</a></div>
-								
-							</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+
+
+
+                            <!-- User Type Radio Buttons -->
+                            <div class="form-group d-flex justify-content-center mt-3 mb-4">
+                                <label class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="utype" value="user" checked> User
+                                </label>
+                                <label class="form-check form-check-inline ml-3">
+                                    <input type="radio" class="form-check-input" name="utype" value="agent"> Agent
+                                </label>
+                            </div>
+
+                            <!-- User Image Input -->
+                            <div class="form-group">
+                                <label class="col-form-label"><b>Upload Profile Image</b></label>
+                                <input class="form-control form-control-file" name="uimage" type="file">
+                            </div>
+
+                       
+								<!-- Submit Button -->
+								<div class="text-center">
+									<button type="submit" name="reg" value="Register" onclick="return validatePassword()" class="btn btn-primary btn-lg w-100"
+											style="background-color: #ff6b6b; color: #ffffff; font-weight: bold;">
+										Register
+									</button>
+								</div>
+
+								<script>
+									function validatePassword() {
+										const password = document.getElementById('password').value;
+										const passwordHelp = document.getElementById('passwordHelp');
+
+										if (password.length >= 6) {
+											passwordHelp.style.display = 'none';
+											return true; // Allow form submission
+										} else {
+											passwordHelp.style.display = 'block';
+											return false; // Prevent form submission
+										}
+									}
+								</script>
+
+                        <!-- Divider -->
+                        <div class="login-or mt-4 mb-3 text-center">
+                            <span class="or-line"></span>
+                            <span class="span-or">or</span>
+                        </div>
+
+                        <!-- Login Link -->
+                        <div class="text-center dont-have">
+                            Already have an account? <a href="login.php" class="text-primary font-weight-bold">Login</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 	<!--	login  -->
         
         
@@ -202,7 +199,7 @@ if(isset($_REQUEST['reg']))
     </div>
 </div>
 <!-- Wrapper End --> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 

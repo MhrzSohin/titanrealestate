@@ -48,7 +48,7 @@ if(isset($_REQUEST['calc']))
 <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Title
 	=========================================================-->
 <title>Real Estate PHP</title>
@@ -72,26 +72,7 @@ if(isset($_REQUEST['calc']))
         <!--	Header start  -->
 		<?php include("include/header.php");?>
         <!--	Header end  -->
-        
-        <!--	Banner   --->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>User Listed Property</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">User Listed Property</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> --><!-- FOR MORE PROJECTS visit: codeastro.com -->
-         <!--	Banner   --->
+    
 		 
 		 
 		<!--	Submit property   -->
@@ -120,7 +101,7 @@ if(isset($_REQUEST['calc']))
 							<tr class="text-center">
                                 <td><b>Total Duration</b></td>
                                 <td><b><?php echo $mon.' Months' ; ?></b></td>
-                            </tr><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                            </tr>
 							<tr class="text-center">
                                 <td><b>Interest Rate</b></td>
                                 <td><b><?php echo $int.'%' ; ?></b></td>
@@ -142,7 +123,8 @@ if(isset($_REQUEST['calc']))
                     </table> 
 					</center>
             </div>
-        </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+        </div>
+        
 	<!--	Submit property   -->
         
         

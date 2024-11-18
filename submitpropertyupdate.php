@@ -200,7 +200,7 @@ if(isset($_POST['add']))
 													</div>
 												</div>
 												
-											</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+											</div>
 											<div class="col-xl-6">
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Property Type</label>
@@ -229,18 +229,18 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bathroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bath" required value="<?php echo $row['7']; ?>">
+														<input type="number" class="form-control" name="bath" required value="<?php echo $row['7']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Kitchen</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="kitc" required value="<?php echo $row['9']; ?>">
+														<input type="number" class="form-control" name="kitc" required value="<?php echo $row['9']; ?>">
 													</div>
 												</div>
 												
 											</div>   
-											<div class="col-xl-6"><!-- FOR MORE PROJECTS visit: codeastro.com -->
+											<div class="col-xl-6">
 												<div class="form-group row mb-3">
 													<label class="col-lg-3 col-form-label">BHK</label>
 													<div class="col-lg-9">
@@ -260,19 +260,19 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bedroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bed" required value="<?php echo $row['6']; ?>">
+														<input type="number" class="form-control" name="bed" required value="<?php echo $row['6']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Balcony</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="balc" required value="<?php echo $row['8']; ?>">
+														<input type="number" class="form-control" name="balc" required value="<?php echo $row['8']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Hall</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="hall" required value="<?php echo $row['10']; ?>">
+														<input type="number" class="form-control" name="hall" required value="<?php echo $row['10']; ?>">
 													</div>
 												</div>
 												
@@ -299,7 +299,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Price</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="price" required value="<?php echo $row['13']; ?>">
+														<input type="number" class="form-control" name="price" required value="<?php echo $row['13']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -314,7 +314,7 @@ if(isset($_POST['add']))
 														<input type="text" class="form-control" name="state" required value="<?php echo $row['16']; ?>">
 													</div>
 												</div>
-											</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+											</div>
 											<div class="col-xl-6">
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Total Floor</label>
@@ -342,7 +342,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Area Size</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="asize" required value="<?php echo $row['12']; ?>">
+														<input type="number" class="form-control" name="asize" required value="<?php echo $row['12']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -369,7 +369,7 @@ if(isset($_POST['add']))
 										</div>
 												
 										<h5 class="text-secondary">Image & Status</h5><hr>
-										<div class="row"><!-- FOR MORE PROJECTS visit: codeastro.com -->
+										<div class="row">
 											<div class="col-xl-6">
 												
 												<div class="form-group row">
@@ -426,7 +426,7 @@ if(isset($_POST['add']))
 														<input class="form-control" name="aimage3" type="file" required="">
 														<img src="admin/property/<?php echo $row['21'];?>" alt="pimage" height="150" width="180">
 													</div>
-												</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+												</div>
 												
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Floor Plan Image</label>
@@ -459,7 +459,7 @@ if(isset($_POST['add']))
         </div>
 	<!--	Submit property   -->
         
-        <!-- FOR MORE PROJECTS visit: codeastro.com -->
+   
         <!--	Footer   start-->
 		<?php include("include/footer.php");?>
 		<!--	Footer   start-->
@@ -470,7 +470,7 @@ if(isset($_POST['add']))
     </div>
 </div>
 <!-- Wrapper End --> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 

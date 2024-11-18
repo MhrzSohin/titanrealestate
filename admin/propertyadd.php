@@ -89,7 +89,7 @@ if(isset($_POST['add']))
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>LM HOMES | Property</title>
+        <title>Titan | Property</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -192,13 +192,13 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bathroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bath" required placeholder="Enter Bathroom (only no 1 to 10)">
+														<input type="number" class="form-control" name="bath" required placeholder="Enter Bathroom (only no 1 to 10)">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Kitchen</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="kitc" required placeholder="Enter Kitchen (only no 1 to 10)">
+														<input type="number" class="form-control" name="kitc" required placeholder="Enter Kitchen (only no 1 to 10)">
 													</div>
 												</div>
 												
@@ -223,19 +223,19 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bedroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bed" required placeholder="Enter Bedroom  (only no 1 to 10)">
+														<input type="number" class="form-control" name="bed" required placeholder="Enter Bedroom  (only no 1 to 10)">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Balcony</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="balc" required placeholder="Enter Balcony  (only no 1 to 10)">
+														<input type="number" class="form-control" name="balc" required placeholder="Enter Balcony  (only no 1 to 10)">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Hall</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="hall" required placeholder="Enter Hall  (only no 1 to 10)">
+														<input type="number" class="form-control" name="hall" required placeholder="Enter Hall  (only no 1 to 10)">
 													</div>
 												</div>
 												
@@ -261,7 +261,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Price</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="price" required placeholder="Enter Price">
+														<input type="number" class="form-control" name="price" required placeholder="Enter Price">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -304,7 +304,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Area Size</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="asize" required placeholder="Enter Area Size (in sqrt)">
+														<input type="number" class="form-control" name="asize" required placeholder="Enter Area Size (in sqrt)">
 													</div>
 												</div>
 												<div class="form-group row">

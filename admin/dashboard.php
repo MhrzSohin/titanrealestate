@@ -71,7 +71,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-primary">
+										<span class="dash-widget-icon " style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-users"></i>
 										</span>
 										
@@ -94,8 +94,8 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-success">
-											<i class="fe fe-users"></i>
+										<span class="dash-widget-icon "style="background-color: #ff6b6b; border-radius: 8px;">
+											<i class="fe fe-users" ></i>
 										</span>
 										
 									</div>
@@ -107,7 +107,7 @@ if(!isset($_SESSION['auser']))
 										
 										<h6 class="text-muted">Agents</h6>
 										<div class="progress progress-sm">
-											<div class="progress-bar bg-success w-50"></div>
+											<div class="progress-bar bg-primary w-50"></div>
 										</div>
 									</div>
 								</div>
@@ -117,7 +117,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-danger">
+										<span class="dash-widget-icon " style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-user"></i>
 										</span>
 										
@@ -145,7 +145,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-warning">
+										<span class="dash-widget-icon "style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-table"></i>
 										</span>
 										
@@ -169,7 +169,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-info">
+										<span class="dash-widget-icon "style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-home"></i>
 										</span>
 										
@@ -193,7 +193,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-secondary">
+										<span class="dash-widget-icon "style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-building"></i>
 										</span>
 										
@@ -217,7 +217,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-primary">
+										<span class="dash-widget-icon "style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-tablet"></i>
 										</span>
 										
@@ -243,7 +243,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-success">
+										<span class="dash-widget-icon "style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-quote-left"></i>
 										</span>
 										
@@ -267,7 +267,7 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-info">
+										<span class="dash-widget-icon "style="background-color: #ff6b6b; border-radius: 8px;">
 											<i class="fe fe-quote-right"></i>
 										</span>
 										

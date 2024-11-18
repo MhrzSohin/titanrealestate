@@ -2,8 +2,7 @@
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 session_start();
-include("config.php");
-///code								
+include("config.php");						
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,43 +42,12 @@ include("config.php");
 </head>
 <body>
 
-<!--	Page Loader
-=============================================================
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
---> 
-
 
 <div id="page-wrapper">
     <div class="row"> 
         <!--	Header start  -->
 		<?php include("include/header.php");?>
         <!--	Header end  -->
-        <!-- FOR MORE PROJECTS visit: codeastro.com -->
-        <!--	Banner   --->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>Property Grid</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Property Grid</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-         <!--	Banner   --->
         
         <!--	Property Grid
 		===============================================================-->
@@ -87,7 +55,7 @@ include("config.php");
             <div class="container">
                 <div class="row">
 				
-					<div class="col-lg-8">
+					<div class="col-lg-12">
                         <div class="row">
 						
 							<?php 
@@ -97,46 +65,52 @@ include("config.php");
 							?>
 									
                             <div class="col-md-6">
-                                <div class="featured-thumb hover-zoomer mb-4">
-                                    <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
+                                <div >
+                                    <div > <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
                                         
-                                        <div class="sale bg-success text-white">For <?php echo $row['5'];?></div>
-                                        <div class="price text-primary text-capitalize">Rs<?php echo $row['13'];?> <span class="text-white"><?php echo $row['12'];?> Sqft</span></div>
-                                        
+                                       
                                     </div>
                                     <div class="featured-thumb-data shadow-one">
                                         <div class="p-4">
-                                            <h5 class="text-secondary hover-text-success mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0'];?>"><?php echo $row['1'];?></a></h5>
-                                            <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-success"></i> <?php echo $row['14'];?></span> </div>
-                                        <div class="px-4 pb-4 d-inline-block w-100">
-                                            <div class="float-left text-capitalize"><i class="fas fa-user text-success mr-1"></i>By : <?php echo $row['uname'];?></div>
-                                            <div class="float-right"><i class="far fa-calendar-alt text-success mr-1"></i> <?php echo date('d-m-Y', strtotime($row['date']));?></div>
+                                            <!-- Property Title -->
+                                            <h5 class="text-secondary hover-text-success mb-2 text-capitalize">
+                                                <a href="propertydetail.php?pid=<?php echo $row['0']; ?>"><?php echo $row['1']; ?></a>
+                                            </h5>
+
+                                            <!-- Property Type (e.g., For Sale/For Rent) -->
+                                            <div class="mb-2">For <?php echo $row['5']; ?></div>
+
+                                            <!-- Price and Size -->
+                                            <div class="text-secondary hover-text-success mb-2">
+                                                Rs <?php echo $row['13']; ?> 
+                                                <span class="text-muted ml-2"><?php echo $row['12']; ?> Sqft</span>
+                                            </div>
+
+                                            <!-- Location -->
+                                            <span class="location text-capitalize">
+                                                <i class="fas fa-map-marker-alt mr-1"></i> Location: <?php echo $row['14']; ?>
+                                            </span>
+                                        </div>
+
+                                        <!-- Footer Section (Owner and Date) -->
+                                        <div class="px-4 pb-4 d-flex justify-content-between w-100">
+                                            <div class="text-capitalize">
+                                                <i class="fas fa-user mr-1"></i> By: <?php echo $row['uname']; ?>
+                                            </div>
+                                            <div>
+                                                <i class="fas fa-calendar-alt mr-1"></i> <?php echo date('d-m-Y', strtotime($row['date'])); ?>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <?php } ?>
                             
-
-                            
-                            
-                        <!--    <div class="col-md-12">
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-center mt-4">
-                                        <li class="page-item disabled"> <span class="page-link">Previous</span> </li>
-                                        <li class="page-item active" aria-current="page"> <span class="page-link"> 1 <span class="sr-only">(current)</span> </span> </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">...</li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
-                                    </ul>
-                                </nav>
-                            </div>  -->
                         </div>
                     </div>
 					
-                    <div class="col-lg-4">
+                    <!-- <div class="col-lg-4">
                         <div class="sidebar-widget">
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Instalment Calculator</h4>
 						<form class="d-inline-block w-100" action="calc.php" method="post">
@@ -200,7 +174,7 @@ include("config.php");
 
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     
                 </div>
             </div>

@@ -454,7 +454,7 @@ a.text-primary:focus,
 a.hover-text-primary:hover,
 .hover-text-primary:hover,
 .hover-text-primary a:hover {
-  color: var(--theme-primary-color) !important;
+  color: #ff6b6b !important;
 }
 .icon-primary,
 .icon-primary i,
@@ -475,7 +475,7 @@ a.hover-text-primary:hover,
 .navigation_link_widget li a:hover,
 .flat-primary [class^="flaticon-"]::before,
 .list-text-white a.dropdown-item:hover {
-  color: var(--theme-primary-color);
+  color: #ff6b6b;
 }
 .text-secondary,
 .text-secondary a,
@@ -521,7 +521,7 @@ a.bg-primary,
 a.bg-primary:hover,
 a.bg-primary:focus,
 .hover-bg-primary:hover {
-  background-color: var(--theme-primary-color) !important;
+  background-color: #ff6b6b !important;
 }
 .formicon .checkbox-collapse::after,
 .jslider .jslider-pointer,
@@ -535,7 +535,7 @@ a.bg-primary:focus,
 .bg-shape::after,
 .send-mail button,
 ::-webkit-scrollbar-thumb {
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
 }
 .bg-secondary {
   background-color: #343434 !important;
@@ -558,7 +558,7 @@ a.bg-primary:focus,
 }
 [class*="double-down-line"]::before,
 [class*="double-down-line"]::after {
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
 }
 .landing-header.fixed-top,
 .nav-logo-with-bg .navbar-brand,
@@ -573,7 +573,7 @@ a.bg-primary:focus,
 .hover-bg-primary-nav .navbar-nav .nav-link.active,
 .hover-bg-primary-nav .navbar-nav .nav-link:hover,
 .hover-bg-primary-nav .navbar-nav .nav-link:focus {
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
 }
 .fixed-header-bg-secondary.fixed-top,
 .bg-secondary {
@@ -634,8 +634,8 @@ a.bg-primary:focus,
 .btn-primary:hover,
 .btn-ordinary:hover {
   color: var(--theme-white-color);
-  background-color: var(--theme-primary-color);
-  border-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
 }
 .btn-white {
   color: var(--theme-secondary-color);
@@ -658,7 +658,7 @@ a.bg-primary:focus,
 .dropdown-item.active,
 .dropdown-item:active,
 .dropdown-item:hover {
-  color: var(--theme-primary-color);
+  color: #ff6b6b;
   background-color: #f5f5f5;
 }
 /*==========================================================
@@ -1050,7 +1050,7 @@ button:focus {
 .down-angle-white::before {
   border-left: 15px solid transparent;
   border-right: 40px solid transparent;
-  border-top: 35px solid #17c788;
+  border-top: 35px solid #ff6b6b;
 }
 .circle,
 .circle img {
@@ -1540,7 +1540,7 @@ blockquote {
   float: left;
 }
 .form-group label span {
-  color: var(--theme-primary-color);
+  color: #ff6b6b;
 }
 .radio-check label span {
   line-height: 44px;
@@ -1695,7 +1695,7 @@ blockquote {
 }
 .owl-dots-hover-primary .owl-dots .owl-dot:hover,
 .owl-dots-hover-primary .owl-dots .owl-dot.active {
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
 }
 /*=====================================
  Tab Nav
@@ -1708,7 +1708,7 @@ blockquote {
   display: block;
 }
 .nav-menu li.active a {
-  border-bottom: 3px solid var(--theme-primary-color);
+  border-bottom: 3px solid #ff6b6b;
 }
 .over-view .btn-link.clops {
   position: relative;
@@ -2076,7 +2076,7 @@ sup {
 }
 .dashboard-panel .success {
   border-left: 5px solid;
-  border-left-color: #67c339;
+  border-left-color: #ff6b6b;
   border-radius: 0;
 }
 .dashboard-panel .success.alert {
@@ -2246,7 +2246,7 @@ FAQ page
   border: 10px solid transparent;
   bottom: -10px;
   right: 0;
-  border-right-color: var(--theme-primary-color);
+  border-right-color: #ff6b6b;
 }
 /*==========================================
 Register page
@@ -2271,7 +2271,7 @@ Register page
   position: absolute;
   left: 0;
   top: 100%;
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
 }
 .social-media button {
   margin-bottom: 10px;
@@ -2320,7 +2320,7 @@ Register page
   left: -15px;
   top: 9px;
   border: 8px solid transparent;
-  border-right-color: var(--theme-primary-color);
+  border-right-color: #ff6b6b;
 }
 .timeline-item .timeline-info {
   border: 1px solid;
@@ -2331,7 +2331,7 @@ Register page
   margin-bottom: 20px;
 }
 .timeline-item:hover .circle {
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
 }
 .timeline-item:hover .date-time {
   right: -107px;
@@ -2368,7 +2368,7 @@ Register page
 .compare-list-properties .available::before,
 .compare-list-properties .not-available::before {
   content: "\f00c";
-  color: #2ab160;
+  color: #ff6b6b;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   display: inline-block;
@@ -2403,7 +2403,7 @@ Register page
   content: "";
   width: 50%;
   height: 100%;
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
   right: 0;
   top: 0;
   border-radius: 0 30px 30px 0;
@@ -2523,7 +2523,7 @@ Register page
 }
 .pagination .page-item .page-link:hover,
 .pagination .page-item.active .page-link {
-  background-color: var(--theme-primary-color);
+  background-color: #ff6b6b;
   color: #fff;
 }
 /*==========================================
@@ -2684,7 +2684,7 @@ Register page
     transform: translateY(-50%);
   }
   .dropdown-menu .dropdown-toggle:hover::after {
-    border-left: 5px solid var(--theme-primary-color);
+    border-left: 5px solid #ff6b6b;
   }
   /*-------annimation dropdown---------*/
 
@@ -3188,4 +3188,47 @@ Register page
       flex: 1 1 100%; /* One tile per row on very small screens */
       max-width: 100%;
   }
+}
+
+/* Gradient background */
+.bg-gradient {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login box styling */
+.loginbox {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.form-control-lg {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.login-right-wrap h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.login-or .or-line {
+  display: inline-block;
+  height: 1px;
+  width: 45%;
+  background: #ddd;
+  margin: 0 5px;
+}
+
+.span-or {
+  color: #aaa;
+}
+
+.dont-have a {
+  color: #ff6b6b;
+  font-weight: bold;
 }

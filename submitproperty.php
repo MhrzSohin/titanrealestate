@@ -29,35 +29,24 @@ if (isset($_POST['add'])) {
     $state = mysqli_real_escape_string($con, $_POST['state']);
     $status = mysqli_real_escape_string($con, $_POST['status']);
     $uid = $_SESSION['uid'];
+	$feature=$_POST['feature'];
     $totalfloor = mysqli_real_escape_string($con, $_POST['totalfl']);
     $isFeatured = mysqli_real_escape_string($con, $_POST['isFeatured']);
 
-    // Handle the feature input
-	if (isset($_POST['feature']) && is_array($_POST['feature'])) {
-		$feature = implode(',', $_POST['feature']); // Join array elements into a string
-	} else {
-		$feature = ''; // Default to an empty string if no features are selected
-	}
-	
     // Image handling
-    $aimage = $_FILES['aimage']['name'];
-    $aimage1 = $_FILES['aimage1']['name'];
-    $aimage2 = $_FILES['aimage2']['name'];
-    $aimage3 = $_FILES['aimage3']['name'];
-    $aimage4 = $_FILES['aimage4']['name'];
-    $fimage = $_FILES['fimage']['name'];
-    $fimage1 = $_FILES['fimage1']['name'];
-    $fimage2 = $_FILES['fimage2']['name'];
-
-    // Move files
-    move_uploaded_file($_FILES['aimage']['tmp_name'], "admin/property/$aimage");
-    move_uploaded_file($_FILES['aimage1']['tmp_name'], "admin/property/$aimage1");
-    move_uploaded_file($_FILES['aimage2']['tmp_name'], "admin/property/$aimage2");
-    move_uploaded_file($_FILES['aimage3']['tmp_name'], "admin/property/$aimage3");
-    move_uploaded_file($_FILES['aimage4']['tmp_name'], "admin/property/$aimage4");
-    move_uploaded_file($_FILES['fimage']['tmp_name'], "admin/property/$fimage");
-    move_uploaded_file($_FILES['fimage1']['tmp_name'], "admin/property/$fimage1");
-    move_uploaded_file($_FILES['fimage2']['tmp_name'], "admin/property/$fimage2");
+    $upload_dir = "admin/property/";
+    $images = ['aimage', 'aimage1', 'aimage2', 'aimage3', 'aimage4', 'fimage', 'fimage1', 'fimage2'];
+    $image_paths = [];
+    
+    foreach ($images as $image) {
+        if (!empty($_FILES[$image]['name'])) {
+            $image_name = $_FILES[$image]['name'];
+            move_uploaded_file($_FILES[$image]['tmp_name'], $upload_dir . $image_name);
+            $image_paths[$image] = $image_name;
+        } else {
+            $image_paths[$image] = ''; // Empty string if no image uploaded
+        }
+    }
 
     // Fetch existing properties for prediction
     $prediction_query = mysqli_query($con, "SELECT * FROM property WHERE status='available'");
@@ -77,9 +66,11 @@ if (isset($_POST['add'])) {
     // Prediction logic
     $predicted_price = 0;
     $total_similar_properties = 0;
-
-    foreach ($features as $index => $feature) {
-        if ($feature['bhk'] === $bhk && $feature['type'] === $ptype) {
+//loop through properties
+    foreach ($features as $index => $feature_data) {
+		//match the similar properties
+        if ($feature_data['bhk'] === $bhk && $feature_data['type'] === $ptype) {
+			//sum the prices
             $predicted_price += $prices[$index];
             $total_similar_properties++;
         }
@@ -92,25 +83,22 @@ if (isset($_POST['add'])) {
         $msg .= "<p class='alert alert-info'>No similar properties found for prediction.</p>";
     }
 
-	if (isset($_POST['feature']) && is_array($_POST['feature'])) {
-		$feature = implode(',', $_POST['feature']);
-	} else {
-		$feature = '';
-	}
     // Insert new property
-	$sql = "INSERT INTO property 
-	(title, pcontent, type, bhk, stype, bedroom, bathroom, balcony, kitchen, hall, floor, size, price, location, city, state, feature, pimage, pimage1, pimage2, pimage3, pimage4, uid, status, mapimage, topmapimage, groundmapimage, totalfloor,  isFeatured) 
-	VALUES ('$title', '$content', '$ptype', '$bhk', '$stype', '$bed', '$bath', '$balc', '$kitc', '$hall', '$floor', '$asize', '$price', '$loc', '$city', '$state', '$feature', '$aimage', '$aimage1', '$aimage2', '$aimage3', '$aimage4', '$uid', '$status', '$fimage', '$fimage1', '$fimage2', '$totalfloor', '$isFeatured')";
+    $sql = "INSERT INTO property 
+        (title, pcontent, type, bhk, stype, bedroom, bathroom, balcony, kitchen, hall, floor, size, price, location, city, state, feature, pimage, pimage1, pimage2, pimage3, pimage4, uid, status, mapimage, topmapimage, groundmapimage, totalfloor, isFeatured) 
+        VALUES ('$title', '$content', '$ptype', '$bhk', '$stype', '$bed', '$bath', '$balc', '$kitc', '$hall', '$floor', '$asize', '$price', '$loc', '$city', '$state', '$feature', 
+            '{$image_paths['aimage']}', '{$image_paths['aimage1']}', '{$image_paths['aimage2']}', '{$image_paths['aimage3']}', '{$image_paths['aimage4']}', 
+            '$uid', '$status', '{$image_paths['fimage']}', '{$image_paths['fimage1']}', '{$image_paths['fimage2']}', '$totalfloor', '$isFeatured')";
 
-$result = mysqli_query($con, $sql);
-
-if ($result) {
-	$msg .= "<p class='alert alert-success'>Property Inserted Successfully</p>";
-} else {
-	$error .= "<p class='alert alert-warning'>Property Not Inserted: " . mysqli_error($con) . "</p>";
-}
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        $msg .= "<p class='alert alert-success'>Property Inserted Successfully</p>";
+    } else {
+        $error .= "<p class='alert alert-warning'>Property Not Inserted: " . mysqli_error($con) . "</p>";
+    }
 }
 ?>
+
 				
 <!DOCTYPE html>
 <html lang="en">
@@ -142,23 +130,13 @@ if ($result) {
 <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Title
 	=========================================================-->
 <title>Real Estate PHP</title>
 </head>
 <body>
 
-<!--	Page Loader
-=============================================================
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
---> 
 
 
 <div id="page-wrapper">
@@ -166,34 +144,13 @@ if ($result) {
         <!--	Header start  -->
 		<?php include("include/header.php");?>
         <!--	Header end  -->
-        
-        <!--	Banner   --->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>Submit Property</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Submit Property</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-         <!--	Banner   --->
-		 
 		 
 		<!--	Submit property   -->
         <div class="full-row">
             <div class="container">
                     <div class="row">
 						<div class="col-lg-12">
-							<h2 class="text-secondary double-down-line text-center">Submit Property</h2>
+							<h2 class="text-secondary  text-center">Submit Property</h2>
                         </div>
 					</div>
                     <div class="row p-5 bg-white">
@@ -210,7 +167,7 @@ if ($result) {
 													<div class="col-lg-9">
 														<input type="text" class="form-control" name="title" required placeholder="Enter Title">
 													</div>
-												</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+												</div>
 												<div class="form-group row">
 													<label class="col-lg-2 col-form-label">Content</label>
 													<div class="col-lg-9">
@@ -243,17 +200,17 @@ if ($result) {
 															<option value="sale">Sale</option>
 														</select>
 													</div>
-												</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bathroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bath" required placeholder="Enter Bathroom (only no 1 to 10)">
+														<input type="number" class="form-control" name="bath" required placeholder="Enter Bathroom (only no 1 to 10)">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Kitchen</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="kitc" required placeholder="Enter Kitchen (only no 1 to 10)">
+														<input type="number" class="form-control" name="kitc" required placeholder="Enter Kitchen (only no 1 to 10)">
 													</div>
 												</div>
 												
@@ -278,23 +235,23 @@ if ($result) {
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bedroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bed" required placeholder="Enter Bedroom  (only no 1 to 10)">
+														<input type="number" class="form-control" name="bed" required placeholder="Enter Bedroom  (only no 1 to 10)">
 													</div>
-												</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Balcony</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="balc" required placeholder="Enter Balcony  (only no 1 to 10)">
+														<input type="number" class="form-control" name="balc" required placeholder="Enter Balcony  (only no 1 to 10)">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Hall</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="hall" required placeholder="Enter Hall  (only no 1 to 10)">
+														<input type="number" class="form-control" name="hall" required placeholder="Enter Hall  (only no 1 to 10)">
 													</div>
 												</div>
 												
-											</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+											</div>
 										</div>
 										<h5 class="text-secondary">Price & Location</h5><hr>
 										<div class="row">
@@ -317,7 +274,7 @@ if ($result) {
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Price</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="price" required placeholder="Enter Price">
+														<input type="number" class="form-control" name="price" required placeholder="Enter Price">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -332,7 +289,7 @@ if ($result) {
 														<input type="text" class="form-control" name="state" required placeholder="Enter State">
 													</div>
 												</div>
-											</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+											</div>
 											<div class="col-xl-6">
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Total Floor</label>
@@ -360,7 +317,7 @@ if ($result) {
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Area Size</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="asize" required placeholder="Enter Area Size (in sqrt)">
+														<input type="number" class="form-control" name="asize" required placeholder="Enter Area Size (in sqrt)">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -372,50 +329,45 @@ if ($result) {
 												
 											</div>
 										</div>
-										
 										<div class="form-group row">
 											<label class="col-lg-2 col-form-label">Feature</label>
 											<div class="col-lg-9">
-											<p class="alert alert-danger">* Important Please Do Not Remove Below Content Only Change <b>Yes</b> Or <b>No</b> or Details and Do Not Add More Details</p>
+											<!-- <p class="alert alert-danger">* Important Please Do Not Remove Below Content Only Change <b>Yes</b> Or <b>No</b> or Details and Do Not Add More Details</p> -->
 											
 											<textarea class="tinymce form-control" name="feature" rows="10" cols="30">
 												<!---feature area start--->
-												<div class="form-group row">
-													<label class="col-lg-2 col-form-label">Feature</label>
-													<div class="col-lg-9">
-														<p class="alert alert-danger">* Important: Please do not remove below content, only change <b>Yes</b> or <b>No</b> or details and do not add more details</p>
-														
-														<div class="col-md-4">
-															<ul>
-																<li><label><input type="checkbox" name="feature[]" value="Property Age: 10 Years"> Property Age: 10 Years</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="Swimming Pool: Yes"> Swimming Pool: Yes</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="Parking: Yes"> Parking: Yes</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="GYM: Yes"> GYM: Yes</label></li>
-															</ul>
-														</div>
-														<div class="col-md-4">
-															<ul>
-																<li><label><input type="checkbox" name="feature[]" value="Type: Apartment"> Type: Apartment</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="Security: Yes"> Security: Yes</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="Dining Capacity: 10 People"> Dining Capacity: 10 People</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="Church/Temple: No"> Church/Temple: No</label></li>
-															</ul>
-														</div>
-														<div class="col-md-4">
-															<ul>
-																<li><label><input type="checkbox" name="feature[]" value="3rd Party: No"> 3rd Party: No</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="Elevator: Yes"> Elevator: Yes</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="CCTV: Yes"> CCTV: Yes</label></li>
-																<li><label><input type="checkbox" name="feature[]" value="Water Supply: Ground Water / Tank"> Water Supply: Ground Water / Tank</label></li>
-															</ul>
-														</div>
+												<div class="col-md-4">
+														<ul>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Property Age : </span>10 Years</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Swiming Pool : </span>Yes</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Parking : </span>Yes</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">GYM : </span>Yes</li>
+														</ul>
 													</div>
-												</div>	
-
+													<div class="col-md-4">
+														<ul>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Type : </span>Apartment</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Security : </span>Yes</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Dining Capacity : </span>10 People</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Church/Temple  : </span>No</li>
+														
+														</ul>
+													</div>
+													<div class="col-md-4">
+														<ul>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">3rd Party : </span>No</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Elevator : </span>Yes</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">CCTV : </span>Yes</li>
+														<li class="mb-3"><span class="text-secondary font-weight-bold">Water Supply : </span>Ground Water / Tank</li>
+														</ul>
+													</div>
 												<!---feature area end---->
 											</textarea>
 											</div>
 										</div>
+										
+
+												
 												
 										<h5 class="text-secondary">Image & Status</h5><hr>
 										<div class="row">
@@ -504,7 +456,8 @@ if ($result) {
 										</div>
 
 										
-											<input type="submit" value="Submit Property" class="btn btn-info"name="add" style="margin-left:200px;">
+										<input type="submit" value="Submit Property" name="add" style="background-color: #ff6b6b; color: #ffffff; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 200px;">
+
 										
 								</div>
 								</form>
@@ -524,7 +477,6 @@ if ($result) {
     </div>
 </div>
 <!-- Wrapper End --> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
 <!--	Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 

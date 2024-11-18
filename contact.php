@@ -42,7 +42,7 @@ if(isset($_POST['send']))
 	========================================================-->
 <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Css Link
 	========================================================-->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -87,7 +87,7 @@ if(isset($_POST['send']))
             </div>
         </div> -->
         <!--	Banner -->
-		<!-- FOR MORE PROJECTS visit: codeastro.com -->
+		
         <!--	Contact Information -->
         <div class="full-row">
             <div class="container">
@@ -126,7 +126,7 @@ if(isset($_POST['send']))
 						<div class="container">
                         <div class="row">
 							<div class="col-lg-12">
-								<h2 class="text-secondary double-down-line text-center mb-5">Get In Touch</h2>
+								<h2 class="text-secondary  text-center mb-5">Get In Touch</h2>
 								<?php echo $msg; ?><?php echo $error; ?>
 							</div>
 						</div>
@@ -153,7 +153,8 @@ if(isset($_POST['send']))
 												</div>
 											</div>
 										</div>
-										<button type="submit" value="send message" name="send" class="btn btn-success">Send Message</button>
+										<button type="submit" value="send message" name="send" class="btn" style="background-color: #ff6b6b; border: none; color: white;">Send Message</button>
+
 									</div>
 								</form>
 							</div>

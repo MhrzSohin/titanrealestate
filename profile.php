@@ -3,39 +3,38 @@ ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 session_start();
 include("config.php");
-if(!isset($_SESSION['uemail']))
-{
-	header("location:login.php");
+
+if(!isset($_SESSION['uemail'])) {  
+    header("location:login.php");
 }
 
-////// code
-$error='';
-$msg='';
-if(isset($_POST['insert']))
-{
-	$name=$_POST['name'];
-	$phone=$_POST['phone'];
+$error = '';
+$msg = '';
 
-	$content=$_POST['content'];
-	
-	$uid=$_SESSION['uid'];
-	
-	if(!empty($name) && !empty($phone) && !empty($content))
-	{
-		
-		$sql="INSERT INTO feedback (uid,fdescription,status) VALUES ('$uid','$content','0')";
-		   $result=mysqli_query($con, $sql);
-		   if($result){
-			   $msg = "<p class='alert alert-success'>Feedback Send Successfully</p> ";
-		   }
-		   else{
-			   $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
-		   }
-	}else{
-		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
-	}
+if(isset($_POST['insert'])) {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $content = $_POST['content'];
+    $uid = $_SESSION['uid'];
+
+    if(!empty($name) && !empty($phone) && !empty($content)) {
+        // Escape special characters in the content
+        $content = mysqli_real_escape_string($con, $content);
+        
+        $sql = "INSERT INTO feedback (uid, fdescription, status) VALUES ('$uid', '$content', '0')";
+        $result = mysqli_query($con, $sql);
+        
+        if($result) {
+            $msg = "<p class='alert alert-success'>Feedback Sent Successfully</p>";
+        } else {
+            $error = "<p class='alert alert-warning'>Feedback Not Sent Successfully</p>";
+        }
+    } else {
+        $error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
+    }
 }								
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -171,7 +170,7 @@ if(isset($_POST['insert']))
             </div>
         </div>
 	<!--	Submit property   -->
-      <!-- FOR MORE PROJECTS visit: codeastro.com -->  
+       
         
         <!--	Footer   start-->
 		<?php include("include/footer.php");?>
@@ -183,7 +182,8 @@ if(isset($_POST['insert']))
     </div>
 </div>
 <!-- Wrapper End --> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
+
 <!--	Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 

@@ -4,32 +4,48 @@
                     <div class="row">
                         <div class="col-md-8">
                             <ul class="top-contact list-text-white  d-table">
-                                <li><a href="#"><i class="fas fa-phone-alt text-success mr-1"></i>+977-1 44554453</a></li>
-                                <li><a href="#"><i class="fas fa-envelope text-success mr-1"></i>titalrealestate@test.com</a></li>
+                                <li><a href="#"><i class="fas fa-phone-alt "style="color: #ff6b6b; margin-right: 5px;"></i>+977-987654321</a></li>
+                                <li><a href="#"><i class="fas fa-envelope " style="color: #ff6b6b; margin-right: 5px;"></i>titalrealestate@test.com</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4">
                             <div class="top-contact float-right">
                                 <ul class="list-text-white d-table">
-								<li><i class="fas fa-user text-success mr-1"></i>
+								<li><i class="fas fa-user " style="color: #ff6b6b; margin-right: 5px;"></i>
 								<?php  if(isset($_SESSION['uemail']))
 								{ ?>
 								<a href="logout.php">Logout</a>&nbsp;&nbsp;<?php } else { ?>
 								<a href="login.php">Login</a>&nbsp;&nbsp;
 								
 								| </li>
-								<li><i class="fas fa-user-plus text-success mr-1"></i><a href="register.php"> Register</li><?php } ?>
+								<li><i class="fas fa-user-plus "style="color: #ff6b6b; margin-right: 5px;" ></i><a href="register.php"> Register</li><?php } ?>
 								</ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+             <!-- Custom CSS for Logo -->
+    <style>
+        .nav-logo {
+            max-width: 150px; /* Adjust the max width for the logo */
+            height: auto;     /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure the logo fits within the max-width */
+        }
+
+        /* Optional: Make it responsive */
+        @media (max-width: 767px) {
+            .nav-logo {
+                max-width: 100px; /* Smaller logo for mobile */
+            }
+        }
+    </style>
+
             <div class="main-nav secondary-nav hover-success-nav py-2">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <nav class="navbar navbar-expand-lg navbar-light p-0"> <a class="navbar-brand position-relative" href="index.php"><img class="nav-logo" src="images/logo/Titan_Logo.png" alt=""></a>
+                            <nav class="navbar navbar-expand-lg navbar-light p-0"> <a class="navbar-brand position-relative" href="index.php"><img class="nav-logo" src="images/logo/titanbg.png" alt=""></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
@@ -62,7 +78,8 @@
                                     </ul>
                                     
 									
-									<a class="btn btn-success d-none d-xl-block" style="border-radius:30px;" href="submitproperty.php">Submit Property</a> 
+                                    <a href="submitproperty.php" style="background-color: #ff6b6b; color: #ffffff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; text-align: center;">Submit Property</a>
+
                                 </div>
                             </nav>
                         </div>

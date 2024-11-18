@@ -39,7 +39,7 @@ $recommendation_sql = "
         WHERE pid = ?
     )
     AND pid != ?
-    GROUP BY pid
+    GROUP BY pid 
     ORDER BY count DESC
     LIMIT 5"; // Adjust the limit as needed
 
@@ -122,7 +122,7 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
 
 		<!-- Recommended Properties Footer -->
         <footer>
-        <h3 style="color: #2ab160;">RECOMMENDED PROPERTIES</h3>
+        <h3 style="color: #ff6b6b;">RECOMMENDED PROPERTIES</h3>
     <div class="recommended-properties-grid">
     <link rel="stylesheet" type="text/css" href="css/style.css?v=1.1">
         <?php foreach ($recommended_properties as $property): ?>
@@ -139,7 +139,7 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
                 <img src='admin/property/<?php echo htmlspecialchars($recommended_property_details['pimage']); ?>' alt='<?php echo htmlspecialchars($recommended_property_details['title']); ?>' class="property-image">
                 <div class="property-info">
                     <h4><?php echo htmlspecialchars($recommended_property_details['title']); ?></h4>
-                    <p>Price: <?php echo htmlspecialchars($recommended_property_details['price']); ?></p>
+                    <p style="color: #ff6b6b;">Price: <?php echo htmlspecialchars($recommended_property_details['price']); ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -164,31 +164,31 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
                             <div class="col-md-12">
                                 <div id="single-property" style="width:1200px; height:700px; margin:30px auto 50px;"> 
                                     <!-- Slide 1-->
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="100" height="100" src="admin/property/<?php echo $row['18'];?>" class="ls-bg" alt="" /> </div>
+                                    <div class="ls-slide" data-ls="duration:75000; "> <img width="100" height="100" src="admin/property/<?php echo $row['18'];?>" class="ls-bg" alt="" /> </div>
                                     
                                     <!-- Slide 2-->
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="100" height="100" src="admin/property/<?php echo $row['19'];?>" class="ls-bg" alt="" /> </div>
+                                    <div class="ls-slide" data-ls="duration:75000; "> <img width="100" height="100" src="admin/property/<?php echo $row['19'];?>" class="ls-bg" alt="" /> </div>
                                     
                                     <!-- Slide 3-->
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="100" height="100" src="admin/property/<?php echo $row['20'];?>" class="ls-bg" alt="" /> </div>
+                                    <div class="ls-slide" data-ls="duration:75000; "> <img width="100" height="100" src="admin/property/<?php echo $row['20'];?>" class="ls-bg" alt="" /> </div>
 									
 									<!-- Slide 4-->
-									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="100" height="100" src="admin/property/<?php echo $row['21'];?>" class="ls-bg" alt="" /> </div>
+									<div class="ls-slide" data-ls="duration:75000; "> <img width="100" height="100" src="admin/property/<?php echo $row['21'];?>" class="ls-bg" alt="" /> </div>
 									
 									<!-- Slide 5-->
-									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="100" height="100" src="admin/property/<?php echo $row['22'];?>" class="ls-bg" alt="" /> </div>
+									<div class="ls-slide" data-ls="duration:75000; "> <img width="100" height="100" src="admin/property/<?php echo $row['22'];?>" class="ls-bg" alt="" /> </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col-md-6">
-                                <div class="bg-success d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5'];?></div>
+                                <div style="color: #ff6b6b;">For <?php echo $row['5'];?></div>
                                 <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1'];?></h5>
-                                <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-success font-12"></i> &nbsp;<?php echo $row['14'];?></span>
+                                <span class="mb-sm-20 d-block text-capitalize"><i style="color: #ff6b6b;">Location : </i> &nbsp;<?php echo $row['14'];?></span>
 							</div>
-                            <div class="col-md-6">
-                                <div class="text-success text-left h5 my-2 text-md-right">Rs.<?php echo $row['13'];?></div>
-                                <div class="text-left text-md-right">Price</div>
+                            <div class="col-md-8">
+                                <div class="mt-2 text-secondary text-capitalize" style="color: #ff6b6b;">Rs.<?php echo $row['13'];?></div>
+                                <div class="text-left text-md-left">Price</div>
                             </div>
                         </div>
                         <div class="property-details">
@@ -227,6 +227,10 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
                                             <td>State :</td>
                                             <td class="text-capitalize"><?php echo $row['16'];?></td>
                                         </tr>
+                                        <tr>
+                                            <td>Status :</td>
+                                            <td class="text-capitalize"><?php echo $row['24'];?></td>
+                                        </tr>
                                         
                                     </tbody>
                                 </table>
@@ -248,14 +252,17 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
                                 <div id="collapseThree" class="collapse p-4" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <img src="admin/property/<?php echo $row['27'];?>" alt="Not Available"> </div>
                             </div>
+                        <div>
 
-                            <h5 class="mt-5 mb-4 text-secondary double-down-line-left position-relative">Contact Agent</h5>
+                        <h5 style="padding-top: 40px;" style="color: #ff6b6b;" >Contact Agent</h5>
+                        </div>
+                            
                             <div class="agent-contact pt-60">
                                 <div class="row">
                                     <div class="col-sm-4 col-lg-3"> <img src="admin/user/<?php echo $row['uimage']; ?>" alt="" height="100" width="100"> </div>
                                     <div class="col-sm-8 col-lg-9">
                                         <div class="agent-data text-ordinary mt-sm-20">
-                                            <h6 class="text-success text-capitalize"><?php echo $row['uname'];?></h6>
+                                            <h6 style="color: #ff6b6b;"><?php echo $row['uname'];?></h6>
                                             <ul class="mb-3">
                                                 <li><?php echo $row['uphone'];?></li>
                                                 <li><?php echo $row['uemail'];?></li>
@@ -280,38 +287,7 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
 					<?php } ?>
 					
                     <div class="col-lg-4">
-                        <!-- <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4 mt-md-50">Send Message</h4>
-                        <form method="post" action="#">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter Name">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter Email">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter Phone">
-                                    </div>
-                                </div>
-								<div class="col-md-12">
-                                    <div class="form-group">
-										<textarea class="form-control" placeholder="Enter Message"></textarea>
-                                    </div>
-                                </div>
-								
-                                <div class="col-md-12">
-                                    <div class="form-group mt-4">
-                                        <button type="submit" class="btn btn-success w-100">Search Property</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form> -->
-                        <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Instalment Calculator</h4>
+                        <!-- <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Instalment Calculator</h4>
                         <form class="d-inline-block w-100" action="calc.php" method="post">
                             <label class="sr-only">Property Amount</label>
                             <div class="input-group mb-2 mr-sm-2">
@@ -335,8 +311,8 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
                                 <input type="text" class="form-control" name="interest" placeholder="Interest Rate">
                             </div>
                             <button type="submit" value="submit" name="calc" class="btn btn-danger mt-4">Calclute Instalment</button>
-                        </form>
-                        <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4 mt-5">Featured Property</h4>
+                        </form> -->
+                        <h4>Featured Property</h4>
                         <ul class="property_list_widget">
 							
                             <?php 
@@ -353,7 +329,7 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
 
                         </ul>
 
-                        <div class="sidebar-widget mt-5">
+                        <!-- <div class="sidebar-widget mt-5">
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Recently Added Property</h4>
                             <ul class="property_list_widget">
 							
@@ -370,7 +346,7 @@ $recommended_properties = $recommendation_result->fetch_all(MYSQLI_ASSOC);
                                 <?php } ?>
 
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
